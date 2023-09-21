@@ -19,22 +19,22 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { TodoListItemModel } from '../models/TodoListModel'
+import { ProfileItemModel } from '../models/ProfileModel'
 
 const newTodoText = ref('')
 const props = defineProps({
   todos: {
-    type: Array<TodoListItemModel>,
+    type: Array<ProfileItemModel>,
     required: true
   }
 })
 
 const emit = defineEmits<{
-  (e: 'removeTodo', todo: TodoListItemModel): void
+  (e: 'removeTodo', todo: ProfileItemModel): void
   (e: 'addTodo', todo: string): void
 }>()
 
-const onRemoveTodo = (todo: TodoListItemModel): void => {
+const onRemoveTodo = (todo: ProfileItemModel): void => {
   emit('removeTodo', todo)
 }
 const onAddTodo = (): void => {

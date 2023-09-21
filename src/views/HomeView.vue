@@ -11,6 +11,7 @@
 <ul id="myUL">
  <li>Lära mig programmera</li> 
  <li>Kunna resa</li>
- <li class="checked">Äta god mat</li>
+ <li>Äta god mat</li>
 </ul>
 </template>
+
