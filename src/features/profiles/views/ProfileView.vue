@@ -1,43 +1,29 @@
 <template>
-  <div>
-    <Profile
-      :todos="todos"
-      @remove-todo="onTodoRemoveClicked"
-      @add-todo="onAddToClicked"
-    ></Profile>
-    {{ todos }}
+  <div v-if="isLoading">
+    <h1>Profile view header</h1>
+    <ProfileCard :card="profileCardItem"></ProfileCard>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import Profile from '../components/Profile.vue'
-import { ProfileModel, ProfileItemModel } from '../models/ProfileModel'
+import ProfileCard from '../components/ProfileCard.vue'
+import ProfileCardModel from '@/features/profiles/models/ProfileCardModel'
 
-const todos = ref<Array<ProfileItemModel>>([])
-
+const profileCardItem = ref<ProfileCardModel>()
+const isLoading = ref(false)
 //Skapar en ny Model
-const myTodoModel = new ProfileModel()
 onMounted(() => {
   //Laddar alla todos
-  myTodoModel.load()
+  console.log('qqqqq')
+  profileCardItem.value = new ProfileCardModel(
+    'https://www.ingmarbergman.se/sites/default/files/styles/gallery/public/dalarna_dalahast_kopia.jpg',
+    'Arne',
+    'Anka'
+  )
 
+  isLoading.value = true
+  console.log(profileCardItem)
   //"Binder" todos för att vara reaktiva
-  todos.value = myTodoModel.items
 })
-
-const onTodoRemoveClicked = (todo: ProfileItemModel): void => {
-  //tar bort den todo du tryckte remove på
-  myTodoModel.remove(todo)
-
-  //laddar om den uppdaterade listan
-  todos.value = myTodoModel.items
-}
-const onAddToClicked = (todo: string): void => {
-  //Lägger till en ny todo
-  myTodoModel.add(todo)
-
-  //laddar om den uppdaterade listan
-  todos.value = [...myTodoModel.items]
-}
 </script>
