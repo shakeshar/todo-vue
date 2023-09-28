@@ -18,7 +18,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, PropType} from 'vue'
+import { ref, computed, type PropType} from 'vue'
 import { TodoListItemModel } from '../models/TodoListModel'
 
 const newTodoText = ref('')
