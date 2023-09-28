@@ -3,7 +3,7 @@
     <h1>My to do list</h1>
 
     <ul>
-      <li v-for="todo in todos" :key="todo.id">
+      <li v-for="todo in _todos" :key="todo.id">
         {{ todo.text }}
         <button @click="onRemoveTodo(todo)" :style="{ backgroundColor: todo.color }">Ta bort</button>
      {{ todo.color }}
@@ -18,16 +18,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, computed, PropType} from 'vue'
 import { TodoListItemModel } from '../models/TodoListModel'
 
 const newTodoText = ref('')
 const props = defineProps({
   todos: {
-    type: Array<TodoListItemModel>,
+    type: Array as PropType<TodoListItemModel[]>,
     required: true
   }
 })
+
+
+const _todos = computed<TodoListItemModel[]>( () =>  props.todos);
 
 const emit = defineEmits<{
   (e: 'removeTodo', todo: TodoListItemModel): void
