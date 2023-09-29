@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
+import Message from './features/shared/messages/components/Message.vue'
 </script>
 
 <template>
@@ -16,10 +17,14 @@ import HelloWorld from './components/HelloWorld.vue'
         <RouterLink to="/stefan">Stefan</RouterLink>
         <RouterLink to="/profile">Profile</RouterLink>
       </nav>
+      <Message joline="HEADER"></Message>
     </div>
   </header>
 
   <RouterView />
+  <footer>
+    <Message joline="FOOTER"></Message>
+  </footer>
 </template>
 
 <style scoped>

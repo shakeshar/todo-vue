@@ -1,5 +1,7 @@
 <template>
-  <h1>{{ props.joline }}</h1>
+  <div class="message-container">
+    <h1>{{ props.joline }}</h1>
+  </div>
 </template>
 
 <script setup lang="ts">
@@ -10,3 +12,9 @@ const props = defineProps({
   }
 })
 </script>
+
+<style>
+.message-container {
+  background-color: blue;
+}
+</style>
