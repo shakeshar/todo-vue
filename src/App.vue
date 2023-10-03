@@ -16,6 +16,7 @@ import Message from './features/shared/messages/components/Message.vue'
         <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/stefan">Stefan</RouterLink>
         <RouterLink to="/profile">Profile</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
       </nav>
       <Message joline="HEADER"></Message>
     </div>
