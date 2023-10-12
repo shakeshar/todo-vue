@@ -1,17 +1,12 @@
-export default class ProfileCardModel {
-  imageUrl: string = ''
-  firstname: string = ''
-  lastname: string = ''
+export default class LoginCardModel {
+  username: string = ''
+  password: string = ''
 
-  count: number = 26
-  following: number = 94
-  followers: number = 139
   /**
    *
    */
-  constructor(imageUrl: string, firstname: string, lastname: string) {
-    this.imageUrl = imageUrl
-    this.firstname = firstname
-    this.lastname = lastname
+  constructor(username: string, password: string) {
+    this.username = username
+    this.password = password
   }
 }
