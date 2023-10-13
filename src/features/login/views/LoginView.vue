@@ -2,7 +2,7 @@
   <div v-if="isLoading">
     <Message joline="Hej"></Message>
 
-    <h1>Profile view header</h1>
+    <h1>User login</h1>
     <LoginCard :card="loginCardItem"></LoginCard>
 
     <Message joline="Hej då"></Message>
